@@ -1,1 +1,57 @@
 <h2 class="style1">Đây là trang home</h2>
+<p (click)="display(person.name)">Chào {{ person.name }}</p>
+
+<p (click)="display(person.age)">Tuổi: {{ person.age }}</p>
+
+<p>Sinh viên tại: {{ person.school }}</p>
+
+
+<input type="text" [(ngModel)]="person.name">
+<br/>
+<input type="number" name="" id="" [(ngModel)]="person.age">
+<br/>
+
+
+<span *ngIf="person.age < 18" class="underAge">Bạn quá trẻ</span>
+<span *ngIf="person.age >= 18" class="overAge">Bạn đã đến tuổi trưởng thành</span>
+<h4>Danh sách học sinh</h4>
+<div *ngFor="let student of students">
+    <li>{{ student }}</li>
+</div>
+Danh sách công việc nhà
+<ul *ngFor="let item of list">
+    <li>{{ item }}</li>
+</ul>
+<label for="">Chọn học sinh để thêm vào lớp</label>
+<select name="" id="" >
+    <option *ngFor="let item of listStudent" value="">{{ item.name }}</option>
+</select>
+
+
+<table>
+    <thead>
+        <th>Id</th>
+        <th>name</th>
+        <th>Lop</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of listStudent">
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.lop }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>test cart</p>
+
+<p>Sản phẩm A: 15$</p>
+<label for="">Nhập số lượng</label>
+<input type="number" min="{{ min }}" [(ngModel)]="quantity" />
+<p>Tổng tiền: {{ quantity * price }}</p>
+
+
+<h1>KẸO</h1>
+<button (click)="down()">-</button>
+<input type="number" value="" [(ngModel)]="quantity" style="color: red" min="{{ min }}">
+<button (click)="up()">+</button>
